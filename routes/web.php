@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BreakfastController;
 use App\Http\Controllers\LunchController;
+use App\Http\Controllers\DinnerController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -31,3 +32,5 @@ route::get('/dashboard', [DashboardController::class, 'index']);
 Route::resource('breakfast', BreakfastController::class);
 
 Route::resource('lunch', LunchController::class);
+
+Route::resource('dinner', DinnerController::class);
