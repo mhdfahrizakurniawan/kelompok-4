@@ -6,7 +6,8 @@ use App\Http\Controllers\BreakfastController;
 use App\Http\Controllers\LunchController;
 use App\Http\Controllers\DinnerController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\AuthController;
+use PhpParser\Node\Stmt\Return_;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('layout.master');
+    return view('auth.login');
 });
 
 //tabel CRUD menu/mealtype
@@ -34,3 +35,7 @@ Route::resource('breakfast', BreakfastController::class);
 Route::resource('lunch', LunchController::class);
 
 Route::resource('dinner', DinnerController::class);
+
+
+Auth::routes();
+
