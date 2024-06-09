@@ -25,9 +25,11 @@ Halaman Lunch
     <h3 class="card-title">Tabel Data Lunch</h3>
   </div>
   <div class="card-body">
+    @auth
     <div class="new" style="margin-bottom:5px">
       <a href="{{ route('lunch.create') }}" class="btn btn-primary">Tambah Data</a>
     </div>
+    @endauth
     <table class="table table-bordered" id="example1">
       <thead style="text-align: center">
         <tr>
@@ -53,13 +55,16 @@ Halaman Lunch
                     <td>{{ $lunch->harga }}</td>
                     <td>{{ $lunch->meal ? $lunch->meal->type_name : 'No meal associated' }}</td>
                     <td class="d-flex justify-content-center align-items-center">
-                        <a href="{{ route('lunch.show', $lunch->id) }}" class="btn btn-primary btn-sm" style="margin-right: 20px">Show</a>
+                        @auth
                         <a href="{{ route('lunch.edit', $lunch->id) }}" class="btn btn-info btn-sm">Edit</a>
                         <form action="{{ route('lunch.destroy', $lunch->id) }}" method="POST" style="margin-left: 20px">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                         </form>
+                        @endauth
+                      <a href="{{ route('lunch.show', $lunch->id) }}" class="btn btn-primary btn-sm" style="margin-right: 20px">Show</a>
+                        
                     </td>
                 </tr>
             @endforeach

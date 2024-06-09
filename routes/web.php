@@ -7,6 +7,7 @@ use App\Http\Controllers\LunchController;
 use App\Http\Controllers\DinnerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Return_;
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
 });
 
 //tabel CRUD menu/mealtype
-route::resource('/Tmeal', MenuController::class);
+
 
 //untuk halaman dashboard
 route::get('/dashboard', [DashboardController::class, 'index']);
@@ -39,3 +40,6 @@ Route::resource('dinner', DinnerController::class);
 
 Auth::routes();
 
+Route::middleware(['auth'])->group(function () {
+    route::resource('/Tmeal', MenuController::class);
+});

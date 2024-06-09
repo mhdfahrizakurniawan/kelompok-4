@@ -27,9 +27,6 @@ halaman MealType
   </div>
   <div class="card-body">
   
-    <div class="new" style="margin-bottom:5px">
-      <a href="/Tmeal/create" class="btn btn-primary">TambahData</a>
-  </div>
     <table class="table table-bordered" id="example1">
       <thead style="text-align: center">
         <tr>
@@ -64,6 +61,9 @@ halaman MealType
         @endforelse
       </tbody>
     </table>
+    @auth
+        
+    @endauth
   </div>
 </div>
 
